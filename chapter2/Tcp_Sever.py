@@ -1,5 +1,5 @@
 
-import socket
+import socket#套接字，插槽
 def main():
     server=socket.socket(socket.AF_INET,socket.SOCK_STREAM)#开启服务
     server.bind(("",7891))#开始监听端口

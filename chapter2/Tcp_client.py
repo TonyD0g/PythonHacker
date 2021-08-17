@@ -1,5 +1,5 @@
 import socket
-
+#python是胶水语言，因为他有很多 库，库：别人写好的代码
 def main():
     #1.创建tcp的套接字
      tcp_client_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
