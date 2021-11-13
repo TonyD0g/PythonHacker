@@ -10,9 +10,13 @@ except:
 
 string1 = ""
 for x in range(j):
-    y = s[i:i + 9]
+    y = s[i:i + 8]      # 8个8个分割
     # print(y,"\n")
+    # print(hex(int(y,2)))
+    #print(type(y))
+    # y = str(y)
+    # y = bin(int(y,16))
     string1 += y + ' '
-    i = i + 9
+    i = i + 8           # 8个8个分割,上面改了，这里也要改
 
 print(string1)

