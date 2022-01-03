@@ -7,4 +7,6 @@ headers = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Connection': 'keep-alive'
 }
 response = requests.get(url, headers)
+with open("baidu.txt", "w", encoding="utf-8") as fp:
+    fp.write(response.text)
 print(response.text)

@@ -12,4 +12,4 @@ fwrite(STDOUT,'[+]your command: ');
 
 $command=str_replace(array("\r\n", "\r", "\n"), "", fgets(STDIN)); 
 
-echo '[*] (~'.urlencode(~$system).')(~'.urlencode(~$command).');';
+echo '[*](~'.urlencode(~$system).')(~'.urlencode(~$command).');';
